@@ -4,6 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GïDA — Le kebab locavore de l'Île de Nantes</title>
+  <script>
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    function toTop() { window.scrollTo(0, 0); }
+    toTop();
+    window.addEventListener("load", toTop);
+    window.addEventListener("pageshow", toTop);
+    [0, 1, 50, 100, 200, 400, 800].forEach((t) => setTimeout(toTop, t));
+  </script>
   <meta name="description" content="GïDA, fast-good artisanal sur l'Île de Nantes : döner au pain pide artisanal turc, frites maison, produits 100% régionaux. Formule döner + frites + boisson à 15 €. 27 rue de la Tour d'Auvergne." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
