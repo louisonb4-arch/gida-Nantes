@@ -107,7 +107,12 @@
       transition: transform 0.2s, background 0.2s;
     }
     .pastille:hover { background: var(--bois); transform: rotate(-2deg) scale(1.04); }
-    @media (max-width: 700px) { .nav__liens a:not(.pastille) { display: none; } }
+    @media (max-width: 700px) {
+      .nav { flex-wrap: wrap; row-gap: 14px; }
+      .nav__liens { flex-basis: 100%; flex-wrap: wrap; justify-content: space-between; gap: 14px 20px; }
+      .nav__liens a:not(.pastille) { display: inline-flex; font-size: 0.9rem; }
+      .pastille { padding: 10px 20px; font-size: 0.9rem; }
+    }
 
     /* ---------- Hero collage ---------- */
     .hero { position: relative; padding: clamp(6px, 2.4vw, 34px) 0 0; }
