@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GïDA — Le kebab locavore de l'Île de Nantes</title>
+  <meta name="description" content="GïDA, fast-good artisanal sur l'Île de Nantes : döner au pain pide artisanal turc, frites maison, produits 100% régionaux. Formule döner + frites + boisson à 15 €. 27 rue de la Tour d'Auvergne." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Caveat:wght@600&family=Marcellus&display=swap" rel="stylesheet" />
+  <style>
+    /* ================================================================
+       GïDA — v2
+       Système : magazine organique. Formes courbes, photos réelles
+       en blobs, stickers manuscrits rotatifs, séparateurs ondulés SVG.
+       Palette tirée de la vraie devanture : bleu marine de l'auvent,
+       blanc craie, bois du comptoir, noir ardoise des menus.
+       Bricolage Grotesque + Caveat (craie) + Marcellus (logotype).
+       ================================================================ */
+    :root {
+      --papier: #F5F2E8;      /* blanc craie chaud */
+      --marine: #223268;      /* le bleu de la devanture */
+      --marine-fonce: #161F42;
+      --bois: #B9853F;        /* le comptoir en bois */
+      --bois-clair: #E9CD92;
+      --ardoise: #24251F;     /* les ardoises du menu */
+      --encre: #1E2438;
+      --brico: "Bricolage Grotesque", "Helvetica Neue", sans-serif;
+      --manuscrit: "Caveat", cursive;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--brico);
+      background: var(--papier);
+      color: var(--encre);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    .boite { max-width: 1140px; margin-inline: auto; padding-inline: clamp(20px, 4vw, 44px); }
+
+    /* ---------- Titres ---------- */
+    h1, h2 { font-weight: 800; line-height: 1.02; letter-spacing: -0.025em; }
+    h1 { font-size: clamp(2.9rem, 8.5vw, 6.2rem); }
+    h2 { font-size: clamp(2rem, 5vw, 3.4rem); }
+
+    .manuscrit {
+      font-family: var(--manuscrit);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--bois);
+      display: inline-block;
+      transform: rotate(-2deg);
+    }
+
+    /* ---------- Stickers ---------- */
+    .sticker {
+      display: inline-grid;
+      place-items: center;
+      text-align: center;
+      font-family: var(--manuscrit);
+      font-size: 1.15rem;
+      line-height: 1.1;
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      background: var(--bois-clair);
+      color: var(--encre);
+      box-shadow: 0 6px 18px -6px rgba(30, 36, 56, 0.35);
+      padding: 10px;
+    }
+    .sticker--bois { background: var(--bois); color: var(--papier); }
+    .sticker--marine { background: var(--marine); color: var(--papier); }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px clamp(20px, 4vw, 44px);
+    }
+    .nav__logo {
+      /* logotype fidèle à l'enseigne : serif capitales espacées */
+      font-family: "Marcellus", Georgia, serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--marine);
+    }
+    .nav__logo .i { color: var(--bois); }
+    .nav__liens { display: flex; gap: 26px; align-items: center; }
+    .nav__liens a { text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+    .nav__liens a:not(.pastille):hover { color: var(--bois); }
+    .pastille {
+      background: var(--marine);
+      color: var(--papier);
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .pastille:hover { background: var(--bois); transform: rotate(-2deg) scale(1.04); }
+    @media (max-width: 700px) { .nav__liens a:not(.pastille) { display: none; } }
+
+    /* ---------- Hero collage ---------- */
+    .hero { position: relative; padding: clamp(6px, 2.4vw, 34px) 0 0; }
+
+    .hero__grille {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+    }
+    @media (max-width: 860px) { .hero__grille { grid-template-columns: 1fr; } }
+
+    .hero__texte h1 .souligne {
+      position: relative;
+      white-space: nowrap;
+    }
+    .hero__texte h1 .souligne::after {
+      content: "";
+      position: absolute;
+      left: -2%;
+      bottom: 0.04em;
+      width: 104%;
+      height: 0.28em;
+      background: var(--bois-clair);
+      z-index: -1;
+      border-radius: 4px;
+      transform: rotate(-1deg);
+    }
+    .hero__texte h1 .bleu { color: var(--marine); }
+
+    .hero__texte .chapo {
+      margin-top: 24px;
+      font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+      max-width: 46ch;
+      color: #49506B;
+    }
+
+    .hero__cta { margin-top: 30px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .gros-bouton {
+      background: var(--marine);
+      color: var(--papier);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.05rem;
+      padding: 18px 34px;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px -10px rgba(34, 50, 104, 0.55);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .gros-bouton:hover { transform: rotate(1.5deg) scale(1.04); background: var(--bois); }
+
+    .hero__note { font-weight: 600; font-size: 0.95rem; }
+    .hero__note .e { color: var(--bois); letter-spacing: 2px; }
+
+    /* Collage photo hero : blob + polaroid + stickers */
+    .hero__collage { position: relative; min-height: 420px; }
+    .hero__blob {
+      width: min(100%, 460px);
+      aspect-ratio: 1;
+      margin-inline: auto;
+      border-radius: 58% 42% 55% 45% / 48% 55% 45% 52%;
+      overflow: hidden;
+      box-shadow: 0 34px 70px -34px rgba(30, 36, 56, 0.5);
+      animation: respire 9s ease-in-out infinite;
+    }
+    @keyframes respire {
+      0%, 100% { border-radius: 58% 42% 55% 45% / 48% 55% 45% 52%; }
+      50% { border-radius: 45% 55% 46% 54% / 55% 45% 58% 42%; }
+    }
+    @media (prefers-reduced-motion: reduce) { .hero__blob { animation: none; } }
+    .hero__blob img { width: 100%; height: 100%; object-fit: cover; }
+
+    .hero__polaroid {
+      position: absolute;
+      bottom: -8%;
+      left: -4%;
+      width: clamp(150px, 20vw, 210px);
+      background: #fff;
+      padding: 10px 10px 34px;
+      transform: rotate(-7deg);
+      box-shadow: 0 18px 40px -18px rgba(30, 36, 56, 0.5);
+    }
+    .hero__polaroid img { aspect-ratio: 1; object-fit: cover; }
+    .hero__polaroid figcaption {
+      font-family: var(--manuscrit);
+      font-size: 1.05rem;
+      text-align: center;
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      right: 0;
+    }
+
+    .hero__sticker1 { position: absolute; top: -4%; right: 2%; --rot: 9deg; transform: rotate(var(--rot)); }
+    .hero__sticker2 { position: absolute; bottom: 8%; right: -2%; --rot: -6deg; transform: rotate(var(--rot)); }
+    @media (max-width: 860px) {
+      .hero__collage { min-height: 0; padding-bottom: 40px; }
+      .hero__sticker1 { top: -20px; }
+    }
+
+    /* ---------- Vagues séparatrices (statiques) ---------- */
+    .vague { display: block; width: 100%; height: auto; }
+
+    /* ---------- Section verte : provenance ---------- */
+    .provenance { background: var(--marine); color: var(--papier); padding-block: clamp(56px, 8vw, 104px); }
+    .provenance h2 .dore { color: var(--bois-clair); }
+    .provenance .intro { margin-top: 18px; max-width: 54ch; opacity: 0.9; }
+
+    .circuit {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 900px) { .circuit { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .circuit { grid-template-columns: 1fr; } }
+
+    .circuit__etape {
+      background: rgba(251, 245, 234, 0.08);
+      border: 1.5px dashed rgba(251, 245, 234, 0.4);
+      border-radius: 22px;
+      padding: 26px 22px;
+      transition: transform 0.25s, background 0.25s;
+    }
+    .circuit__etape:hover { transform: rotate(-1deg) translateY(-4px); background: rgba(251, 245, 234, 0.14); }
+    .circuit__etape .km {
+      font-family: var(--manuscrit);
+      font-size: 1.5rem;
+      color: var(--bois-clair);
+    }
+    .circuit__etape h3 { font-size: 1.15rem; font-weight: 800; margin-block: 6px 8px; }
+    .circuit__etape p { font-size: 0.9rem; opacity: 0.85; }
+
+    /* ---------- La carte : étals ---------- */
+    .carte { padding-block: clamp(56px, 8vw, 104px); }
+    .carte__tete { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    .etals {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    @media (max-width: 900px) { .etals { grid-template-columns: 1fr; } }
+
+    .etal {
+      border-radius: 26px;
+      padding: 30px 26px;
+      position: relative;
+      transition: transform 0.25s;
+    }
+    .etal:hover { transform: translateY(-6px) rotate(-0.5deg); }
+    .etal:nth-child(1) { background: #EDE7D4; transform: rotate(-1deg); }   /* papier chaud */
+    .etal:nth-child(2) { background: #DEE4F2; transform: rotate(0.8deg); }  /* bleu pâle de l'auvent */
+    .etal:nth-child(3) { background: #F0E3C6; transform: rotate(-0.6deg); } /* bois clair */
+
+    .etal .etiquette {
+      font-family: var(--manuscrit);
+      font-size: 1.3rem;
+      color: var(--bois);
+    }
+    .etal h3 { font-size: 1.45rem; font-weight: 800; margin-block: 6px 12px; }
+    .etal ul { list-style: none; font-size: 0.95rem; }
+    .etal li { padding-block: 7px; border-bottom: 1px dashed rgba(30, 36, 56, 0.25); display: flex; justify-content: space-between; gap: 10px; }
+    .etal li:last-child { border-bottom: none; }
+    .etal li b { font-weight: 600; }
+
+    /* étapes de composition du döner */
+    .composer {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .composer span {
+      background: #fff;
+      border: 1.5px dashed rgba(34, 50, 104, 0.35);
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 0.88rem;
+    }
+    .composer b {
+      font-family: var(--manuscrit);
+      font-size: 1.2em;
+      color: var(--bois);
+      margin-right: 4px;
+    }
+
+    .etudiant-note {
+      margin-top: 16px;
+      text-align: center;
+      font-family: var(--manuscrit);
+      font-size: 1.25rem;
+      color: var(--bois);
+      transform: rotate(-1.5deg);
+    }
+
+    .formule {
+      /* clin d'œil aux ardoises craie de la devanture */
+      margin-top: 34px;
+      background: var(--ardoise);
+      color: #F2EEDF;
+      border-radius: 999px;
+      padding: 18px 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      text-align: center;
+      font-weight: 800;
+      font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+      transform: rotate(-0.8deg);
+      box-shadow: 0 14px 30px -16px rgba(36, 37, 31, 0.6);
+    }
+    .formule .manuscrit { color: var(--bois-clair); font-size: 1.3em; }
+
+    /* ---------- Galerie collage ---------- */
+    .collage { padding-block: clamp(40px, 6vw, 80px); position: relative; }
+    .collage__grille {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0;
+      align-items: center;
+    }
+    .collage figure { position: relative; }
+    .collage figure img { width: 100%; height: 100%; object-fit: cover; }
+    /* la photo originale du bowl le place à gauche : on recadre dessus */
+    .collage__b img { object-position: 0% 62%; }
+    .collage .legende {
+      font-family: var(--manuscrit);
+      font-size: 1.25rem;
+      color: var(--marine);
+      text-align: center;
+      margin-top: 12px;
+      transform: rotate(-1.5deg);
+    }
+
+    .collage__a {
+      grid-column: 1 / 8;
+      grid-row: 1;
+      z-index: 1;
+    }
+    .collage__a .cadre-photo {
+      border-radius: 30px;
+      overflow: hidden;
+      aspect-ratio: 16 / 11;
+      box-shadow: 0 26px 60px -30px rgba(30, 36, 56, 0.55);
+      transform: rotate(-1.2deg);
+    }
+    .collage__b {
+      grid-column: 7 / 13;
+      grid-row: 1;
+      z-index: 2;
+      transform: translateY(26%) rotate(2deg);
+    }
+    .collage__b .cadre-photo {
+      border-radius: 50% 50% 46% 54% / 52% 48% 52% 48%;
+      overflow: hidden;
+      aspect-ratio: 1;
+      border: 8px solid var(--papier);
+      box-shadow: 0 26px 60px -30px rgba(30, 36, 56, 0.55);
+    }
+    @media (max-width: 720px) {
+      .collage__a { grid-column: 1 / 11; }
+      .collage__b { grid-column: 5 / 13; transform: translateY(18%) rotate(2deg); }
+    }
+    .collage__marge { height: clamp(70px, 12vw, 150px); }
+
+    /* ---------- Bandeau avis manuscrit ---------- */
+    .mots { padding-block: clamp(40px, 6vw, 88px); text-align: center; }
+    .mots blockquote {
+      font-family: var(--manuscrit);
+      font-size: clamp(1.7rem, 4.5vw, 2.9rem);
+      line-height: 1.25;
+      color: var(--marine);
+      max-width: 26ch;
+      margin-inline: auto;
+      transform: rotate(-1deg);
+      text-wrap: balance;
+    }
+    .mots cite {
+      display: block;
+      font-family: var(--brico);
+      font-style: normal;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 18px;
+      color: var(--encre);
+    }
+    .mots .source { color: #49506B; font-weight: 400; }
+    .mots .note-g {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 26px;
+      background: #fff;
+      border-radius: 999px;
+      padding: 12px 26px;
+      font-weight: 800;
+      box-shadow: 0 10px 24px -14px rgba(30, 36, 56, 0.4);
+    }
+    .mots .note-g .e { color: var(--bois); letter-spacing: 2px; }
+
+    /* ---------- Grille d'avis dépliable ---------- */
+    .avis-grille {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      text-align: left;
+    }
+    @media (max-width: 900px) { .avis-grille { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .avis-grille { grid-template-columns: 1fr; } }
+
+    .avis-carte {
+      background: #fff;
+      border-radius: 18px;
+      padding: 22px 22px 18px;
+      box-shadow: 0 10px 26px -18px rgba(30, 36, 56, 0.35);
+      font-size: 0.93rem;
+      display: flex;
+      flex-direction: column;
+    }
+    /* légères rotations alternées, comme les étals de la carte */
+    .avis-carte:nth-child(3n + 1) { transform: rotate(-0.5deg); }
+    .avis-carte:nth-child(3n + 2) { transform: rotate(0.4deg); }
+    .avis-carte:nth-child(3n)     { transform: rotate(-0.3deg); }
+
+    .avis-carte .etoiles { color: var(--bois); letter-spacing: 2px; font-size: 0.85rem; }
+    .avis-carte p { margin-top: 8px; flex: 1; }
+    .avis-carte footer {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: #49506B;
+    }
+    .avis-carte footer b { color: var(--encre); }
+
+    .avis-bouton {
+      margin-top: 36px;
+      border: none;
+      cursor: pointer;
+      font-family: var(--brico);
+    }
+    .avis-mention { margin-top: 16px; font-size: 0.78rem; color: #49506B; }
+
+    /* ---------- Pied vert : infos ---------- */
+    .infos { background: var(--marine-fonce); color: var(--papier); padding-block: clamp(56px, 8vw, 96px) 40px; }
+    .infos h2 .dore { color: var(--bois-clair); }
+
+    .infos__grille {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    @media (max-width: 860px) { .infos__grille { grid-template-columns: 1fr; } }
+
+    .infos__carte {
+      background: rgba(251, 245, 234, 0.07);
+      border-radius: 24px;
+      padding: 30px 26px;
+    }
+    .infos__carte h3 {
+      font-family: var(--manuscrit);
+      font-size: 1.6rem;
+      color: var(--bois-clair);
+      margin-bottom: 16px;
+    }
+    .infos__carte table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+    .infos__carte td { padding: 7px 0; border-bottom: 1px dashed rgba(251, 245, 234, 0.3); }
+    .infos__carte td:last-child { text-align: right; font-weight: 600; }
+    .infos__carte tr:last-child td { border-bottom: none; }
+    .infos__carte p { font-size: 0.98rem; line-height: 1.7; }
+    .infos__carte a { color: var(--bois-clair); font-weight: 600; }
+
+    .infos__pied {
+      margin-top: 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+    .infos__pied .logo-pied {
+      font-family: "Marcellus", Georgia, serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      opacity: 1;
+    }
+    .infos__pied .logo-pied .i { color: var(--bois); }
+
+    /* ---------- Intro animée du hero (au chargement) ----------
+       Chaque keyframe ne définit que l'état "from" : l'état final
+       est l'état CSS de base de l'élément. `backwards` couvre le délai. */
+    @keyframes leve { from { opacity: 0; transform: translateY(28px); } }
+    @keyframes monte { from { transform: translateY(112%); } }
+    @keyframes apparait { from { opacity: 0; transform: scale(0.93); } }
+    @keyframes tombe { from { opacity: 0; transform: rotate(-15deg) translateY(-30px); } }
+    @keyframes pop {
+      0% { opacity: 0; transform: scale(0.35) rotate(var(--rot, 0deg)); }
+      70% { opacity: 1; transform: scale(1.14) rotate(var(--rot, 0deg)); }
+    }
+
+    .hero__texte > .manuscrit { animation: leve 0.6s ease-out 0.05s backwards; }
+    .ligne { display: block; overflow: hidden; }
+    .ligne__int { display: inline-block; animation: monte 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+    .ligne:nth-of-type(1) .ligne__int { animation-delay: 0.15s; }
+    .ligne:nth-of-type(2) .ligne__int { animation-delay: 0.28s; }
+    .ligne:nth-of-type(3) .ligne__int { animation-delay: 0.41s; }
+    .hero__texte .chapo { animation: leve 0.6s ease-out 0.52s backwards; }
+    .hero__cta { animation: leve 0.6s ease-out 0.66s backwards; }
+    .hero__blob {
+      animation:
+        apparait 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s backwards,
+        respire 9s ease-in-out infinite;
+    }
+    .hero__polaroid { animation: tombe 0.7s cubic-bezier(0.34, 1.3, 0.64, 1) 0.85s backwards; }
+    .hero__sticker1 { animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.05s backwards; }
+    .hero__sticker2 { animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s backwards; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero__texte > .manuscrit, .ligne__int, .hero__texte .chapo, .hero__cta,
+      .hero__blob, .hero__polaroid, .hero__sticker1, .hero__sticker2 { animation: none; }
+    }
+
+    /* ---------- Apparition ---------- */
+    .pousse { opacity: 0; transform: translateY(22px) scale(0.99); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .pousse.la { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .pousse { opacity: 1; transform: none; transition: none; } }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav__logo" href="#">g<span class="i">ï</span>da</a>
+    <div class="nav__liens">
+      <a href="#provenance">D'où ça vient</a>
+      <a href="#carte">La carte</a>
+      <a href="#infos">Venir</a>
+      <a class="pastille" href="tel:+33981993160">☎ 09 81 99 31 60</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ============ HERO COLLAGE ============ -->
+    <header class="hero">
+      <div class="boite hero__grille">
+        <div class="hero__texte">
+          <span class="manuscrit">fast-good · Île de Nantes</span>
+          <h1>
+            <span class="ligne"><span class="ligne__int">Le kebab qui</span></span>
+            <span class="ligne"><span class="ligne__int"><span class="souligne">pousse ici,</span></span></span>
+            <span class="ligne"><span class="ligne__int bleu">se mange ici.</span></span>
+          </h1>
+          <p class="chapo">
+            Poulet de la région, pain pide d'une boulangerie turque de Rezé,
+            frites coupées le matin, sauces maison. GïDA, c'est le kebab
+            artisanal, locavore et écolo — à dévorer en terrasse.
+          </p>
+          <div class="hero__cta">
+            <a class="gros-bouton" href="#carte">Voir la carte</a>
+            <span class="hero__note"><span class="e" aria-hidden="true">★★★★★</span> 4,6 · 210+ avis Google</span>
+          </div>
+        </div>
+
+        <div class="hero__collage">
+          <div class="hero__blob">
+            <img src="https://www.bigcitynantes.fr/wp-content/uploads/2022/10/Capture-decran-2022-10-26-a-11.07.03-1044x730.jpg"
+                 alt="Le kebab pide de GïDA, au pain d'une boulangerie turque de Rezé" loading="eager" />
+          </div>
+          <figure class="hero__polaroid">
+            <img src="https://www.bigcitynantes.fr/wp-content/uploads/2022/10/295979992_119631387475523_7321895423250336985_n-edited-1.jpg"
+                 alt="La devanture et la terrasse de GïDA, rue de la Tour d'Auvergne" loading="lazy" />
+            <figcaption>la terrasse ☀</figcaption>
+          </figure>
+          <span class="sticker sticker--bois hero__sticker1">100%<br />fait maison</span>
+          <span class="sticker hero__sticker2">produits<br />d'ici</span>
+        </div>
+      </div>
+
+      <!-- vague vers section verte -->
+      <svg class="vague" viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true" style="margin-top: clamp(30px, 6vw, 70px);">
+        <path fill="#223268" d="M0,48 C240,95 480,0 720,32 C960,64 1200,90 1440,40 L1440,90 L0,90 Z" />
+      </svg>
+    </header>
+
+    <!-- ============ PROVENANCE ============ -->
+    <section id="provenance" class="provenance" aria-labelledby="t-provenance">
+      <div class="boite">
+        <span class="manuscrit" style="color: var(--bois-clair);">circuit court, vraiment</span>
+        <h2 id="t-provenance">Chaque ingrédient a une <span class="dore">adresse.</span></h2>
+        <p class="intro">
+          Pas de mystère, pas de camion frigorifique qui traverse l'Europe :
+          tout ce qui entre dans votre kebab vient de la région ou de notre cuisine.
+        </p>
+        <div class="circuit">
+          <div class="circuit__etape pousse">
+            <span class="km">← Rezé, 4 km</span>
+            <h3>Le pain pide</h3>
+            <p>Cuit chaque jour par une petite boulangerie turque de Rezé. Moelleux dehors, alvéolé dedans.</p>
+          </div>
+          <div class="circuit__etape pousse">
+            <span class="km">← la région</span>
+            <h3>Le poulet</h3>
+            <p>Élevé en Loire-Atlantique, mariné sur place, cuit à la broche.</p>
+          </div>
+          <div class="circuit__etape pousse">
+            <span class="km">← notre cuisine</span>
+            <h3>Frites &amp; sauces</h3>
+            <p>Frites coupées le matin. Quatre sauces maison : blanche, algérienne, mayo miel curry et la fameuse GïDA.</p>
+          </div>
+          <div class="circuit__etape pousse">
+            <span class="km">← d'à côté</span>
+            <h3>Bières, vins, glaces</h3>
+            <p>Brasseurs, vignerons et glaciers du coin. Le dessert aussi est locavore.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- vague retour papier -->
+    <svg class="vague" viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true" style="background: var(--marine);">
+      <path fill="#F5F2E8" d="M0,50 C260,0 520,90 780,55 C1040,20 1240,70 1440,35 L1440,90 L0,90 Z" />
+    </svg>
+
+    <!-- ============ LA CARTE ============ -->
+    <section id="carte" class="carte" aria-labelledby="t-carte">
+      <div class="boite">
+        <div class="carte__tete">
+          <div>
+            <span class="manuscrit">courte et de saison</span>
+            <h2 id="t-carte">La carte</h2>
+          </div>
+          <span class="sticker sticker--marine" style="transform: rotate(6deg);">veggie<br />friendly ✿</span>
+        </div>
+
+        <div class="etals">
+          <article class="etal pousse">
+            <span class="etiquette">le sandwich</span>
+            <h3>Döner</h3>
+            <ul>
+              <li><b>Döner seul</b><span>9,50 €</span></li>
+              <li><b>Döner + frites</b><span>13 €</span></li>
+              <li><b>Döner + frites + boisson</b><span>15 €</span></li>
+              <li><span>frites cheddar +1,50 € · viande halal</span></li>
+            </ul>
+          </article>
+          <article class="etal pousse">
+            <span class="etiquette">à la fourchette</span>
+            <h3>Assiettes</h3>
+            <ul>
+              <li><b>Simple</b><span>13,50 €</span></li>
+              <li><b>Gidassiette</b><span>17,50 €</span></li>
+              <li><b>Gidacheese</b><span>9,50 €</span></li>
+              <li><span>viande ou vege · taboulé · frites · chèvre frais · herbes</span></li>
+            </ul>
+          </article>
+          <article class="etal pousse">
+            <span class="etiquette">à côté</span>
+            <h3>Side &amp; dessert</h3>
+            <ul>
+              <li><b>Frites</b><span>4,50 €</span></li>
+              <li><b>Frites cheddar</b><span>5,50 €</span></li>
+              <li><b>Tenders</b><span>6 €</span></li>
+              <li><b>Cookie</b><span>2,50 €</span></li>
+              <li><b>Dessert du moment</b><span>demandez !</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Composition du döner, comme sur le menu du restaurant -->
+        <div class="composer pousse" aria-label="Composez votre döner en 4 étapes">
+          <span><b>1.</b> Pide (pain artisanal turc) ou dürum</span>
+          <span><b>2.</b> Poulet orientale, tenders, vege du moment ou mozza zaatar</span>
+          <span><b>3.</b> Sauce : blanche, algérienne, GïDA ou mayo miel curry</span>
+          <span><b>4.</b> Mâche, oignons, herbes fraîches, chou pickles, chèvre</span>
+        </div>
+
+        <p class="formule pousse">
+          <span class="manuscrit">la formule ➞</span>
+          döner + frites + boisson = 15 €
+        </p>
+        <p class="etudiant-note pousse">psst : −0,50 € de réduction étudiante</p>
+      </div>
+    </section>
+
+    <!-- ============ COLLAGE PHOTOS ============ -->
+    <section class="collage" aria-label="Photos">
+      <div class="boite collage__grille">
+        <figure class="collage__a pousse">
+          <div class="cadre-photo">
+            <img src="https://www.bigcitynantes.fr/wp-content/uploads/2022/10/295979992_119631387475523_7321895423250336985_n-edited-1.jpg"
+                 alt="La devanture verte et la terrasse de GïDA" loading="lazy" />
+          </div>
+          <p class="legende">27 rue de la Tour d'Auvergne, la terrasse qui va bien</p>
+        </figure>
+        <figure class="collage__b pousse">
+          <div class="cadre-photo">
+            <img src="https://www.bigcitynantes.fr/wp-content/uploads/2022/10/Capture-decran-2022-10-26-a-10.58.33-1-1160x973.jpg"
+                 alt="Le GïDA bowl veggie : boulgour, mâche, fêta, fenouil, mozzarella au zaatar" loading="lazy" />
+          </div>
+          <p class="legende">le bowl veggie ♥</p>
+        </figure>
+      </div>
+      <div class="collage__marge" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ AVIS ============ -->
+    <section class="mots" aria-labelledby="t-mots">
+      <div class="boite">
+        <h2 id="t-mots" class="pousse" style="margin-bottom: 30px;">On n'invente rien :</h2>
+        <blockquote class="pousse">
+          « Un kebab artisanal, raffiné et moderne. On pense avoir trouvé la perle rare. »
+          <cite>Big City Nantes <span class="source">— presse locale</span></cite>
+        </blockquote>
+        <div class="note-g pousse">
+          <span class="e" aria-hidden="true">★★★★★</span> 4,6/5 · plus de 210 avis Google
+        </div>
+
+        <div class="avis-grille" id="avis-grille" hidden aria-live="polite"></div>
+        <button class="gros-bouton avis-bouton" id="avis-bouton" type="button">Voir plus d'avis</button>
+        <p class="avis-mention">Avis d'illustration pour la maquette — à remplacer par les vrais avis Google du restaurant.</p>
+      </div>
+    </section>
+
+    <!-- vague vers pied -->
+    <svg class="vague" viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#161F42" d="M0,45 C300,90 600,5 900,40 C1150,68 1300,60 1440,30 L1440,90 L0,90 Z" />
+    </svg>
+
+    <!-- ============ INFOS ============ -->
+    <section id="infos" class="infos" aria-labelledby="t-infos">
+      <div class="boite">
+        <span class="manuscrit" style="color: var(--bois-clair);">on vous garde une place ?</span>
+        <h2 id="t-infos">Venir manger <span class="dore">un vrai kebab.</span></h2>
+
+        <div class="infos__grille">
+          <div class="infos__carte pousse">
+            <h3>Horaires</h3>
+            <table>
+              <tr><td>Lun — Mer</td><td>12h–14h · 18h30–21h30</td></tr>
+              <tr><td>Jeu — Ven</td><td>12h–14h · 18h30–22h</td></tr>
+              <tr><td>Samedi</td><td>18h30–21h30</td></tr>
+              <tr><td>Dimanche</td><td>Fermé</td></tr>
+            </table>
+          </div>
+          <div class="infos__carte pousse">
+            <h3>Adresse</h3>
+            <p>
+              27 rue de la Tour d'Auvergne<br />
+              44200 Nantes — Île de Nantes<br /><br />
+              <a href="https://maps.google.com/?q=GïDA+27+rue+de+la+Tour+d'Auvergne+44200+Nantes" target="_blank" rel="noopener">Itinéraire →</a>
+            </p>
+          </div>
+          <div class="infos__carte pousse">
+            <h3>Commander</h3>
+            <p>
+              <a href="tel:+33981993160">09 81 99 31 60</a><br />
+              Livraison : Uber Eats &amp; Naofood (coopérative locale)<br /><br />
+              <a href="https://www.instagram.com/gida_nantes/" target="_blank" rel="noopener">Instagram @gida_nantes →</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="infos__pied">
+          <span class="logo-pied">g<span class="i">ï</span>da</span>
+          <span>© 2026 GïDA — kebab artisanal &amp; locavore · maquette de démonstration</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Apparition au scroll
+    const io = new IntersectionObserver(
+      (es) => es.forEach((e) => e.isIntersecting && e.target.classList.add("la")),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll(".pousse").forEach((el) => io.observe(el));
+
+    // ---------- Avis dépliables (contenu d'illustration pour la maquette) ----------
+    const AVIS = [
+      { n: "Camille",   s: 5, d: "il y a 1 semaine",  t: "Le pain pide change tout, rien à voir avec un kebab classique. On sent le fait maison à chaque bouchée." },
+      { n: "Théo",      s: 5, d: "il y a 2 semaines", t: "Frites coupées maison, sauce GïDA incroyable. La formule döner + frites + boisson à 15 € est imbattable pour cette qualité." },
+      { n: "Anaïs",     s: 5, d: "il y a 2 semaines", t: "Enfin un kebab où je peux emmener ma copine végétarienne : le bowl veggie à la mozza au zaatar est une tuerie." },
+      { n: "Karim",     s: 5, d: "il y a 3 semaines", t: "Accueil super chaleureux, produits frais, terrasse agréable. Le combo parfait après le boulot." },
+      { n: "Margaux",   s: 4, d: "il y a 3 semaines", t: "Très bon, un peu d'attente le vendredi soir mais ça vaut le coup. Les choux marinés apportent un vrai plus." },
+      { n: "Julien",    s: 5, d: "il y a 1 mois",     t: "Le concept locavore n'est pas du marketing : on goûte la différence. Poulet moelleux, herbes fraîches, top." },
+      { n: "Sofia",     s: 5, d: "il y a 1 mois",     t: "Meilleur kebab de Nantes, et de loin. L'équipe est adorable et le lieu a une vraie personnalité." },
+      { n: "Bastien",   s: 5, d: "il y a 1 mois",     t: "Testé le GïDA bowl : généreux, équilibré, plein de saveurs. On est loin du fast-food gras habituel." },
+      { n: "Lucie",     s: 5, d: "il y a 1 mois",     t: "La terrasse au soleil + une bière locale + un kebab pide : ma nouvelle routine du jeudi soir." },
+      { n: "Mehdi",     s: 5, d: "il y a 2 mois",     t: "Le patron connaît ses produits et ça se sent. Les trois sauces maison sont excellentes, mention spéciale à l'algérienne." },
+      { n: "Chloé",     s: 4, d: "il y a 2 mois",     t: "Très bonne découverte sur l'Île de Nantes. Portions copieuses, juste dommage que ce soit fermé le dimanche." },
+      { n: "Antoine",   s: 5, d: "il y a 2 mois",     t: "Un kebab qui travaille avec une boulangerie de Rezé et des brasseurs locaux, il fallait oser. Résultat bluffant." },
+      { n: "Inès",      s: 5, d: "il y a 2 mois",     t: "Tout est frais, tout est bon. Le fenouil dans le bowl, je n'y croyais pas, et en fait ça marche super bien." },
+      { n: "Romain",    s: 5, d: "il y a 3 mois",     t: "Rapport qualité-prix imbattable. On voit la préparation devant nous, cuisine ouverte et propre." },
+      { n: "Élise",     s: 5, d: "il y a 3 mois",     t: "Passée par hasard, revenue trois fois dans la semaine. Le pain pide est addictif, je vous aurai prévenus." },
+      { n: "Hugo",      s: 5, d: "il y a 3 mois",     t: "Le kebab galette est parfait pour manger sur le pouce. Rapide, généreux, et zéro coup de mou après." },
+      { n: "Salomé",    s: 5, d: "il y a 3 mois",     t: "Une équipe aux petits soins, des produits de la région, une terrasse sympa. Que demander de plus ?" },
+      { n: "Nicolas",   s: 4, d: "il y a 4 mois",     t: "Très bon kebab, ambiance conviviale. Les frites maison sont excellentes quand elles sortent juste de la friteuse." },
+      { n: "Awa",       s: 5, d: "il y a 4 mois",     t: "Le bowl veggie est devenu mon déjeuner préféré. Frais, copieux, et le zaatar sur la mozza est une super idée." },
+      { n: "Vincent",   s: 5, d: "il y a 4 mois",     t: "On sent le respect du produit du début à la fin. Même les glaces sont locales. Bravo pour la démarche." },
+      { n: "Léa",       s: 5, d: "il y a 4 mois",     t: "Kebab dégusté en terrasse un soir d'été : moment parfait. Le poulet mariné est d'une tendreté rare." },
+      { n: "Adrien",    s: 5, d: "il y a 5 mois",     t: "J'ai fait goûter à mes collègues, on y retourne toutes les semaines maintenant. La sauce blanche maison est top." },
+      { n: "Maëlys",    s: 5, d: "il y a 5 mois",     t: "Petit lieu, grande cuisine. Les choux marinés et la fêta relèvent le tout, c'est frais et parfumé." },
+      { n: "Ibrahim",   s: 5, d: "il y a 5 mois",     t: "Un vrai döner artisanal comme on en trouve à Berlin, avec la touche nantaise en plus. Excellent." },
+      { n: "Justine",   s: 4, d: "il y a 5 mois",     t: "Très bonne adresse. Un peu de monde à midi mais le service reste rapide et souriant." },
+      { n: "Paul",      s: 5, d: "il y a 6 mois",     t: "La formule kebab-frites-boisson est le meilleur deal de l'Île de Nantes. Qualité constante à chaque visite." },
+      { n: "Nina",      s: 5, d: "il y a 6 mois",     t: "Enfin du fast-good qui mérite son nom. Ingrédients impeccables, équipe passionnée, déco chaleureuse." },
+      { n: "Thomas",    s: 5, d: "il y a 6 mois",     t: "Le pain qui vient d'une boulangerie turque de Rezé, c'est le détail qui change absolument tout." },
+      { n: "Clara",     s: 5, d: "il y a 6 mois",     t: "Testé un midi entre deux réunions : servie vite, super bien mangé, et l'équipe est vraiment sympa." },
+      { n: "Yanis",     s: 5, d: "il y a 7 mois",     t: "Les brochettes du soir en happy hour avec une bière de brasserie nantaise : combo gagnant." },
+      { n: "Manon",     s: 5, d: "il y a 7 mois",     t: "Je ne mange plus de kebab ailleurs. La fraîcheur des herbes et la qualité de la viande sont incomparables." },
+      { n: "Louis",     s: 4, d: "il y a 7 mois",     t: "Très bon, prix honnêtes, endroit propre. Le bowl est copieux, parfait après le sport." },
+      { n: "Océane",    s: 5, d: "il y a 8 mois",     t: "L'adresse que tout le monde se passe sur l'Île de Nantes. La terrasse est parfaite dès qu'il y a du soleil." },
+      { n: "Rayan",     s: 5, d: "il y a 8 mois",     t: "Kebab pide au top, frites croustillantes, sauce GïDA à tomber. Et le personnel est adorable." },
+      { n: "Émilie",    s: 5, d: "il y a 8 mois",     t: "Une démarche écolo sincère et une cuisine qui suit derrière. C'est bon, c'est local, c'est propre." },
+      { n: "Quentin",   s: 5, d: "il y a 9 mois",     t: "On m'avait dit « meilleur kebab de Nantes », je confirme. La différence se joue sur les détails." },
+      { n: "Zoé",       s: 5, d: "il y a 9 mois",     t: "Le bowl veggie vaut le détour même pour les carnivores. Boulgour parfumé, légumes croquants, fêta crémeuse." },
+      { n: "Mathis",    s: 5, d: "il y a 9 mois",     t: "Ambiance détendue, musique sympa, cuisine ouverte. On voit tout et ça donne confiance." },
+      { n: "Laura",     s: 4, d: "il y a 10 mois",    t: "Très bonne expérience. Portions généreuses et vrais bons produits. Pensez à réserver la terrasse l'été !" },
+      { n: "Samir",     s: 5, d: "il y a 10 mois",    t: "Du kebab de qualité restaurant au prix street-food. Le poulet régional fait toute la différence." },
+      { n: "Alice",     s: 5, d: "il y a 10 mois",    t: "Découvert grâce à un article de presse locale, adopté immédiatement. La perle rare, vraiment." },
+      { n: "Gaspard",   s: 5, d: "il y a 11 mois",    t: "Un lieu qui a une âme. On mange bien, on est bien accueilli, et on repart avec le sourire." },
+      { n: "Fatou",     s: 5, d: "il y a 11 mois",    t: "Les sauces maison sont incroyables, j'hésite à chaque fois entre les quatre. Prenez la GïDA les yeux fermés." },
+      { n: "Corentin",  s: 5, d: "il y a 11 mois",    t: "Le midi c'est rapide, le soir c'est convivial. Deux ambiances, une même qualité dans l'assiette." },
+      { n: "Jade",      s: 5, d: "il y a 1 an",       t: "Mon spot préféré de l'Île de Nantes. Frais, local, généreux — et l'équipe se souvient de vous." },
+      { n: "Malo",      s: 4, d: "il y a 1 an",       t: "Excellent kebab artisanal. Seul regret : pas ouvert le samedi midi, sinon j'y serais chaque semaine." },
+      { n: "Victoire",  s: 5, d: "il y a 1 an",       t: "La qualité ne bouge pas depuis l'ouverture. C'est régulier, soigné, et toujours aussi bon." },
+      { n: "Aymeric",   s: 5, d: "il y a 1 an",       t: "Kebab galette + frites maison + limonade artisanale : le trio parfait. Foncez-y." },
+      { n: "Lina",      s: 5, d: "il y a 1 an",       t: "On sent l'exigence dans chaque détail, du pain aux herbes fraîches. Une vraie adresse de quartier." },
+      { n: "Erwan",     s: 5, d: "il y a 1 an",       t: "Le fast-good comme il devrait exister partout : local, honnête et délicieux. Bravo à toute l'équipe." }
+    ];
+
+    const grille = document.getElementById("avis-grille");
+    const bouton = document.getElementById("avis-bouton");
+    const LOT = 12;
+    let affiches = 0;
+
+    bouton.addEventListener("click", () => {
+      grille.hidden = false;
+      const fragment = document.createDocumentFragment();
+      AVIS.slice(affiches, affiches + LOT).forEach((a) => {
+        const carte = document.createElement("article");
+        carte.className = "avis-carte pousse";
+        carte.innerHTML =
+          '<span class="etoiles" aria-label="' + a.s + ' sur 5">' +
+          "★".repeat(a.s) + '<span style="opacity:.25">' + "★".repeat(5 - a.s) + "</span></span>" +
+          "<p>« " + a.t + " »</p>" +
+          "<footer><b>" + a.n + "</b><span>" + a.d + "</span></footer>";
+        fragment.appendChild(carte);
+        io.observe(carte);
+      });
+      grille.appendChild(fragment);
+      affiches += LOT;
+
+      const restants = AVIS.length - affiches;
+      if (restants > 0) {
+        bouton.textContent = "Voir plus d'avis (" + restants + " restants)";
+      } else {
+        bouton.remove();
+      }
+    });
+  </script>
+</body>
+</html>
