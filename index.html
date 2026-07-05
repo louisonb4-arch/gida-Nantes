@@ -540,6 +540,10 @@
       opacity: 1;
     }
     .infos__pied .logo-pied .i { color: var(--bois); }
+    .infos__pied-droite { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
+    .infos__liens-legaux a { color: var(--bois-clair); opacity: 0.85; text-decoration: none; }
+    .infos__liens-legaux a:hover { opacity: 1; text-decoration: underline; }
+    @media (max-width: 560px) { .infos__pied-droite { align-items: flex-start; text-align: left; } }
 
     /* ---------- Intro animée du hero (au chargement) ----------
        Chaque keyframe ne définit que l'état "from" : l'état final
@@ -817,7 +821,10 @@
 
         <div class="infos__pied">
           <span class="logo-pied">g<span class="i">ï</span>da</span>
-          <span>© 2026 GïDA — kebab artisanal &amp; locavore · maquette de démonstration</span>
+          <span class="infos__pied-droite">
+            <span>© 2026 GïDA — kebab artisanal &amp; locavore · maquette de démonstration</span>
+            <span class="infos__liens-legaux"><a href="mentions-legales.html">Mentions légales</a> · <a href="politique-confidentialite.html">Politique de confidentialité</a></span>
+          </span>
         </div>
       </div>
     </section>
