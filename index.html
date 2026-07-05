@@ -273,41 +273,6 @@
     }
     .circuit__etape p { font-size: 0.92rem; line-height: 1.65; opacity: 0.82; }
 
-    /* dépliant « en savoir plus » */
-    .circuit__plus {
-      margin-top: 16px;
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      font-family: var(--brico);
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--bois-clair);
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-    }
-    .circuit__plus .chev { font-size: 0.8em; transition: transform 0.35s ease; }
-    .circuit__plus[aria-expanded="true"] .chev { transform: rotate(180deg); }
-    .circuit__histoire {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .circuit__histoire[data-open="true"] { max-height: 520px; }
-    .circuit__histoire p {
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(251, 245, 234, 0.14);
-      font-size: 0.88rem;
-      line-height: 1.62;
-      opacity: 0.78;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .circuit__histoire, .circuit__plus .chev { transition: none; }
-    }
-
     /* ---------- La carte : étals ---------- */
     .carte { padding-block: clamp(56px, 8vw, 104px); }
     .carte__tete { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -686,29 +651,21 @@
             <span class="km">Rezé, 4 km</span>
             <h3>Le pain pide</h3>
             <p>Cuit chaque jour par une petite boulangerie turque de Rezé. Moelleux dehors, alvéolé dedans.</p>
-            <button class="circuit__plus" type="button" aria-expanded="false">En savoir plus <span class="chev" aria-hidden="true">⌄</span></button>
-            <div class="circuit__histoire"><div><p>Chaque matin, une famille de boulangers turcs installée à Rezé pétrit et enfourne ses pide à l'ancienne. On récupère les pains encore tièdes — c'est ce qui donne cette croûte dorée et cette mie aérée qu'on ne trouve nulle part ailleurs.</p></div></div>
           </div>
           <div class="circuit__etape pousse">
             <span class="km">La région</span>
             <h3>Le poulet</h3>
             <p>Élevé en Loire-Atlantique, mariné sur place, cuit à la broche.</p>
-            <button class="circuit__plus" type="button" aria-expanded="false">En savoir plus <span class="chev" aria-hidden="true">⌄</span></button>
-            <div class="circuit__histoire"><div><p>Notre poulet vient d'élevages de Loire-Atlantique, à quelques kilomètres. On le marine nous-mêmes la veille avec nos épices, puis on le cuit lentement à la broche toute la journée pour qu'il reste fondant.</p></div></div>
           </div>
           <div class="circuit__etape pousse">
             <span class="km">Notre cuisine</span>
             <h3>Frites &amp; sauces</h3>
             <p>Frites coupées le matin. Quatre sauces maison : blanche, algérienne, mayo miel curry et la fameuse GïDA.</p>
-            <button class="circuit__plus" type="button" aria-expanded="false">En savoir plus <span class="chev" aria-hidden="true">⌄</span></button>
-            <div class="circuit__histoire"><div><p>Les pommes de terre sont épluchées et coupées chaque matin, jamais surgelées. Nos quatre sauces sont montées maison : la blanche, l'algérienne, la mayo miel curry, et notre secret bien gardé — la sauce GïDA.</p></div></div>
           </div>
           <div class="circuit__etape pousse">
             <span class="km">D'à côté</span>
             <h3>Bières, vins, glaces</h3>
             <p>Brasseurs, vignerons et glaciers du coin. Le dessert aussi est locavore.</p>
-            <button class="circuit__plus" type="button" aria-expanded="false">En savoir plus <span class="chev" aria-hidden="true">⌄</span></button>
-            <div class="circuit__histoire"><div><p>Pour accompagner, on ne travaille qu'avec des producteurs du coin : brasseurs nantais, vignerons du val de Loire et glaciers artisanaux. Du premier verre au dessert, tout reste local.</p></div></div>
           </div>
         </div>
       </div>
@@ -873,15 +830,6 @@
       { threshold: 0.12 }
     );
     document.querySelectorAll(".pousse").forEach((el) => io.observe(el));
-
-    // ---------- Cartes provenance : dépliant « en savoir plus » ----------
-    document.querySelectorAll(".circuit__plus").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const ouvert = btn.getAttribute("aria-expanded") === "true";
-        btn.setAttribute("aria-expanded", String(!ouvert));
-        btn.nextElementSibling.dataset.open = String(!ouvert);
-      });
-    });
 
     // ---------- Avis dépliables (contenu d'illustration pour la maquette) ----------
     const AVIS = [
