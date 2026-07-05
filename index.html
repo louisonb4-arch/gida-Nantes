@@ -248,37 +248,12 @@
       padding: 32px 26px 30px;
       transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
     }
-    /* filet doré supérieur */
-    .circuit__etape::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 26px; right: 26px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--bois-clair), transparent 85%);
-      opacity: 0.55;
-      transition: opacity 0.5s ease;
-    }
-    /* numéro filigrane */
-    .circuit__etape::after {
-      content: attr(data-num);
-      position: absolute;
-      top: 18px; right: 22px;
-      font-family: "Marcellus", Georgia, serif;
-      font-size: 2.3rem;
-      line-height: 1;
-      color: var(--bois-clair);
-      opacity: 0.2;
-      transition: opacity 0.5s ease, transform 0.5s ease;
-      pointer-events: none;
-    }
     .circuit__etape:hover {
       transform: translateY(-6px);
       border-color: rgba(233, 205, 146, 0.55);
       background: linear-gradient(158deg, rgba(251, 245, 234, 0.15), rgba(251, 245, 234, 0.05));
       box-shadow: 0 26px 54px -30px rgba(0, 0, 0, 0.6);
     }
-    .circuit__etape:hover::before { opacity: 1; }
-    .circuit__etape:hover::after { opacity: 0.42; transform: translateY(-2px); }
     .circuit__etape .km {
       font-family: var(--manuscrit);
       font-size: 1.4rem;
@@ -672,23 +647,23 @@
           tout ce qui entre dans votre kebab vient de la région ou de notre cuisine.
         </p>
         <div class="circuit">
-          <div class="circuit__etape pousse" data-num="01">
-            <span class="km">← Rezé, 4 km</span>
+          <div class="circuit__etape pousse">
+            <span class="km">Rezé, 4 km</span>
             <h3>Le pain pide</h3>
             <p>Cuit chaque jour par une petite boulangerie turque de Rezé. Moelleux dehors, alvéolé dedans.</p>
           </div>
-          <div class="circuit__etape pousse" data-num="02">
-            <span class="km">← la région</span>
+          <div class="circuit__etape pousse">
+            <span class="km">La région</span>
             <h3>Le poulet</h3>
             <p>Élevé en Loire-Atlantique, mariné sur place, cuit à la broche.</p>
           </div>
-          <div class="circuit__etape pousse" data-num="03">
-            <span class="km">← notre cuisine</span>
+          <div class="circuit__etape pousse">
+            <span class="km">Notre cuisine</span>
             <h3>Frites &amp; sauces</h3>
             <p>Frites coupées le matin. Quatre sauces maison : blanche, algérienne, mayo miel curry et la fameuse GïDA.</p>
           </div>
-          <div class="circuit__etape pousse" data-num="04">
-            <span class="km">← d'à côté</span>
+          <div class="circuit__etape pousse">
+            <span class="km">D'à côté</span>
             <h3>Bières, vins, glaces</h3>
             <p>Brasseurs, vignerons et glaciers du coin. Le dessert aussi est locavore.</p>
           </div>
