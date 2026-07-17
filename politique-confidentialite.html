@@ -4,120 +4,475 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Politique de confidentialité — GïDA</title>
+  <meta name="description" content="Politique de confidentialité du site de GïDA : aucun cookie, aucune mesure d'audience, aucun formulaire. Ce que ce site sait de vous, et ce qu'il ne sait pas." />
   <meta name="robots" content="noindex" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Marcellus&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/font/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/font/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>
+    /* ================================================================
+       Polices auto-hébergées — SIL Open Font License 1.1
+       Sous-ensembles latin + latin-ext uniquement (site en français).
+       Aucune requête vers les serveurs de Google Fonts.
+       ================================================================ */
+    @font-face {
+      font-family: "Bricolage Grotesque";
+      font-style: normal;
+      font-weight: 200 800; /* fichier variable : wght 200–800, opsz 12–96 */
+      font-display: swap;
+      src: url(assets/font/bricolage-grotesque-latin.woff2) format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Bricolage Grotesque";
+      font-style: normal;
+      font-weight: 200 800;
+      font-display: swap;
+      src: url(assets/font/bricolage-grotesque-latin-ext.woff2) format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Caveat";
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url(assets/font/caveat-latin.woff2) format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Caveat";
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url(assets/font/caveat-latin-ext.woff2) format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Marcellus";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(assets/font/marcellus-latin.woff2) format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Marcellus";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(assets/font/marcellus-latin-ext.woff2) format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* ================================================================
+       GïDA — pages légales
+       Rubrique « L'étiquette » : la DA du site dit que chaque
+       ingrédient a une adresse. Ces pages donnent celle de la maison.
+       ================================================================ */
     :root {
       --papier: #F5F2E8;
       --marine: #223268;
       --marine-fonce: #161F42;
       --bois: #B9853F;
       --bois-clair: #E9CD92;
+      --ardoise: #24251F;
       --encre: #1E2438;
+      --encre-doux: #49506B;
       --brico: "Bricolage Grotesque", "Helvetica Neue", sans-serif;
+      --manuscrit: "Caveat", cursive;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: var(--brico); background: var(--papier); color: var(--encre); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      font-family: var(--brico);
+      background: var(--papier);
+      color: var(--encre);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
     a { color: var(--marine); }
-    .boite { max-width: 760px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 44px); }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--bois);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.88em;
+      background: rgba(34, 50, 104, 0.08);
+      padding: 1px 6px; border-radius: 4px;
+    }
+    .boite { max-width: 820px; margin-inline: auto; padding-inline: clamp(20px, 4vw, 44px); }
 
-    .nav { display: flex; justify-content: space-between; align-items: center; padding: 24px clamp(20px, 5vw, 44px); }
-    .nav__logo { font-family: "Marcellus", Georgia, serif; font-size: 1.3rem; letter-spacing: 0.24em; text-transform: uppercase; text-decoration: none; color: var(--marine); }
+    /* ---------- Nav (identique au site) ---------- */
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px clamp(20px, 4vw, 44px); }
+    .nav__logo {
+      font-family: "Marcellus", Georgia, serif;
+      font-size: 1.35rem; letter-spacing: 0.24em; text-transform: uppercase;
+      text-decoration: none; color: var(--marine);
+    }
     .nav__logo .i { color: var(--bois); }
-    .nav__retour { text-decoration: none; font-weight: 600; font-size: 0.92rem; color: var(--encre); opacity: 0.75; }
-    .nav__retour:hover { opacity: 1; }
+    .nav__retour { text-decoration: none; font-weight: 600; font-size: 0.95rem; color: var(--encre); opacity: 0.75; }
+    .nav__retour:hover { opacity: 1; color: var(--bois); }
 
-    main { padding-block: clamp(32px, 6vw, 60px) 90px; }
-    h1 { font-family: "Marcellus", Georgia, serif; font-size: clamp(2rem, 4.5vw, 2.7rem); color: var(--marine); margin-bottom: 10px; }
-    .maj { font-size: 0.85rem; opacity: 0.6; margin-bottom: 48px; }
-    section { margin-top: 42px; }
-    section + section { padding-top: 42px; border-top: 1px dashed rgba(34, 50, 104, 0.2); }
-    h2 { font-size: 1.25rem; font-weight: 800; color: var(--marine); margin-bottom: 14px; }
-    p { font-size: 0.98rem; max-width: 62ch; }
+    /* ---------- Tête de page ---------- */
+    main { padding-block: clamp(28px, 5vw, 52px) clamp(60px, 8vw, 90px); }
+    .manuscrit {
+      font-family: var(--manuscrit);
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      color: var(--bois);
+      display: inline-block;
+      transform: rotate(-2deg);
+    }
+    h1 {
+      font-weight: 800; line-height: 1.05; letter-spacing: -0.025em;
+      font-size: clamp(2.1rem, 5.4vw, 3.3rem);
+      margin-top: 8px;
+    }
+    h1 .souligne { position: relative; white-space: nowrap; }
+    h1 .souligne::after {
+      content: ""; position: absolute; left: -2%; bottom: 0.04em;
+      width: 104%; height: 0.26em; background: var(--bois-clair);
+      z-index: -1; border-radius: 4px; transform: rotate(-1deg);
+    }
+    .lede { margin-top: 20px; font-size: clamp(1rem, 1.6vw, 1.12rem); color: var(--encre-doux); max-width: 60ch; }
+    .maj { margin-top: 14px; font-size: 0.85rem; color: var(--encre-doux); opacity: 0.8; }
+
+    /* ---------- Corps ---------- */
+    section { margin-top: 44px; }
+    section + section { padding-top: 44px; border-top: 1px dashed rgba(34, 50, 104, 0.22); }
+    h2 { font-size: clamp(1.35rem, 2.6vw, 1.75rem); font-weight: 800; letter-spacing: -0.02em; color: var(--marine); margin-bottom: 14px; }
+    h3 { font-size: 1.1rem; font-weight: 800; margin: 24px 0 8px; }
+    p { font-size: 0.98rem; max-width: 66ch; }
     p + p { margin-top: 12px; }
-    ul { margin-top: 10px; padding-left: 20px; max-width: 62ch; }
-    li { margin-bottom: 8px; font-size: 0.98rem; }
-    .placeholder { color: var(--bois); font-weight: 600; }
-    .note { margin-top: 60px; padding: 20px 24px; background: rgba(34, 50, 104, 0.05); border-radius: 16px; font-size: 0.85rem; opacity: 0.8; max-width: 62ch; }
+    ul.puces { margin: 12px 0 0 20px; max-width: 66ch; }
+    ul.puces li { font-size: 0.98rem; padding-block: 4px; }
 
-    footer { background: var(--marine-fonce); color: var(--papier); padding: 32px clamp(20px, 5vw, 44px); }
-    footer .boite { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.8; }
-    footer a { color: var(--bois-clair); }
+    /* ---------- Fiche ---------- */
+    .fiche { list-style: none; margin: 20px 0 8px; }
+    .fiche li {
+      display: flex; align-items: baseline; gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px dashed rgba(34, 50, 104, 0.25);
+    }
+    .fiche li:last-child { border-bottom: none; }
+    .fiche .k { color: var(--encre-doux); white-space: nowrap; font-size: 0.92rem; }
+    .fiche .v { margin-left: auto; text-align: right; font-weight: 600; font-size: 0.95rem; }
+    @media (max-width: 640px) {
+      .fiche li { flex-wrap: wrap; gap: 2px; }
+      .fiche .v { margin-left: 0; text-align: left; width: 100%; }
+    }
+
+    /* ---------- Encadré source ---------- */
+    .source {
+      background: rgba(185, 133, 63, 0.09);
+      border: 1px solid rgba(185, 133, 63, 0.3);
+      border-left: 3px solid var(--bois);
+      border-radius: 0 16px 16px 0;
+      padding: 18px 22px; margin: 20px 0;
+      font-size: 0.9rem; color: var(--encre-doux); max-width: 68ch;
+    }
+    .source strong { color: var(--encre); }
+
+    /* ---------- Alerte ---------- */
+    .alerte {
+      background: #FFF0F5;
+      border: 1.5px solid #E8A6BF;
+      border-left: 4px solid #C2185B;
+      border-radius: 0 16px 16px 0;
+      padding: 20px 24px; margin: 22px 0;
+      max-width: 68ch;
+    }
+    .alerte h3 { margin-top: 0; color: #7A0B26; font-size: 1.02rem; }
+    .alerte p { font-size: 0.93rem; }
+
+    /* Trou assumé : ce qui n'a pas pu être vérifié se voit. */
+    .manque {
+      background: #FFD9E2;
+      color: #7A0B26;
+      padding: 1px 7px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 0.94em;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    /* ---------- Séparateur ---------- */
+    .sep {
+      text-align: center; color: var(--bois);
+      font-family: var(--manuscrit); font-size: 1.4rem;
+      letter-spacing: 0.5em;
+      margin: clamp(40px, 6vw, 64px) 0;
+      transform: rotate(-1deg);
+    }
+
+    /* ---------- Boutons ---------- */
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: clamp(44px, 6vw, 64px); }
+    .gros-bouton {
+      background: var(--marine); color: var(--papier);
+      text-decoration: none; font-weight: 800; font-size: 1rem;
+      padding: 15px 30px; border-radius: 999px;
+      box-shadow: 0 10px 24px -10px rgba(34, 50, 104, 0.55);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .gros-bouton:hover { transform: rotate(1.5deg); background: var(--bois); }
+    .bouton-creux {
+      background: transparent; color: var(--marine);
+      border: 1.5px solid rgba(34, 50, 104, 0.4);
+      text-decoration: none; font-weight: 600; font-size: 1rem;
+      padding: 15px 30px; border-radius: 999px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .bouton-creux:hover { transform: rotate(-1.5deg); border-color: var(--bois); color: var(--bois); }
+    @media (prefers-reduced-motion: reduce) {
+      .gros-bouton, .bouton-creux { transition: none; }
+      .gros-bouton:hover, .bouton-creux:hover { transform: none; }
+    }
+
+    /* ---------- Vague + pied ---------- */
+    .vague { display: block; width: 100%; height: auto; }
+    footer.pied { background: var(--marine-fonce); color: var(--papier); padding: 8px clamp(20px, 4vw, 44px) 36px; }
+    .pied__grille {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 14px; flex-wrap: wrap;
+      max-width: 1140px; margin-inline: auto;
+      font-size: 0.85rem; opacity: 0.8;
+    }
+    .pied__logo {
+      font-family: "Marcellus", Georgia, serif;
+      font-size: 1.15rem; letter-spacing: 0.24em; text-transform: uppercase;
+      opacity: 1; text-decoration: none; color: var(--papier);
+    }
+    .pied__logo .i { color: var(--bois); }
+    .pied__droite { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
+    .pied__droite a { color: var(--bois-clair); text-decoration: none; opacity: 0.9; }
+    .pied__droite a:hover { opacity: 1; text-decoration: underline; }
+    @media (max-width: 560px) { .pied__droite { align-items: flex-start; text-align: left; } }
   </style>
 </head>
 <body>
-  <nav class="nav">
+
+  <nav class="nav" aria-label="Navigation principale">
     <a class="nav__logo" href="index.html">g<span class="i">ï</span>da</a>
     <a class="nav__retour" href="index.html">← Retour au site</a>
   </nav>
 
   <main class="boite">
-    <h1>Politique de confidentialité</h1>
-    <p class="maj">Dernière mise à jour : 2026</p>
 
-    <section>
-      <h2>Quelles données sont collectées</h2>
-      <p>
-        Ce site est une vitrine de présentation : il ne comporte ni formulaire, ni compte utilisateur, ni newsletter.
-        Aucune donnée personnelle n'est donc collectée activement auprès des visiteurs.
-      </p>
-      <p>
-        Comme tout site web, des données techniques minimales (adresse IP, type de navigateur, pages consultées) peuvent être
-        enregistrées automatiquement par notre hébergeur à des fins de sécurité et de bon fonctionnement du service.
-      </p>
-    </section>
-
-    <section>
-      <h2>Pourquoi et comment ces données sont utilisées</h2>
-      <p>
-        Les données techniques d'hébergement servent uniquement à assurer la disponibilité, la sécurité et la performance du site.
-        Elles ne sont ni exploitées à des fins commerciales, ni cédées à des tiers.
-      </p>
-    </section>
-
-    <section>
-      <h2>Durée de conservation</h2>
-      <p>
-        Les journaux techniques d'hébergement sont conservés pour la durée définie par notre hébergeur, généralement quelques semaines à quelques mois, avant suppression automatique.
-      </p>
-    </section>
-
-    <section>
-      <h2>Qui peut y accéder</h2>
-      <p>
-        Seul l'éditeur du site et son hébergeur (Vercel Inc.) ont accès à ces données techniques, dans le cadre strict de la maintenance du site.
-      </p>
-    </section>
-
-    <section>
-      <h2>Cookies</h2>
-      <p>
-        Ce site n'utilise aucun cookie de mesure d'audience, publicitaire ou de traçage. Il ne dépose que les éléments techniques strictement
-        nécessaires à son fonctionnement (le cas échéant), sans consentement requis.
-      </p>
-    </section>
-
-    <section>
-      <h2>Vos droits</h2>
-      <p>
-        Pour toute question sur vos données ou pour exercer un droit d'accès, de rectification ou de suppression, vous pouvez nous contacter à
-        l'adresse <span class="placeholder">[EMAIL]</span> ou par téléphone au <a href="tel:+33981993160">09 81 99 31 60</a>.
-      </p>
-    </section>
-
-    <p class="note">
-      Ce modèle doit être adapté aux informations exactes de l'entreprise et à ses outils réels (formulaire, newsletter, analytics)
-      s'ils venaient à être ajoutés au site, et validé selon son activité.
+    <span class="manuscrit">l'étiquette</span>
+    <h1>Confidentialité <span class="souligne">&amp; cookies</span></h1>
+    <p class="lede">
+      La version courte : ce site ne vous demande rien, ne vous compte pas et ne dépose aucun
+      cookie. Une seule chose à savoir — les photos de la page d'accueil viennent d'un serveur
+      qui n'est pas le nôtre. C'est dit en détail plus bas.
     </p>
+    <p class="maj">Dernière mise à jour : 17 juillet 2026</p>
+
+    <section>
+      <h2>Qui est responsable de ce site</h2>
+      <p>
+        <strong>LES ARROSES</strong>, société à responsabilité limitée immatriculée sous le
+        numéro SIREN 900 619 917, dont le siège est situé 5 rue Emmanuel Lebert, 44400 Rezé,
+        exploitant le restaurant GïDA au 27 rue de la Tour d'Auvergne, 44200 Nantes, est
+        responsable du traitement au sens du règlement (UE) 2016/679 (RGPD).
+      </p>
+      <p>
+        <span class="manque">[à confirmer — le rattachement de la société LES ARROSES au
+        restaurant GïDA est déduit de la seule adresse]</span> : aucune enseigne « GïDA » n'est
+        déclarée au registre national des entreprises. Voir les
+        <a href="mentions-legales.html">mentions légales</a> pour le détail de ce point, qui
+        doit être tranché par l'exploitant avant la mise en ligne.
+      </p>
+      <p>
+        Contact : <a href="tel:+33981993160">09 81 99 31 60</a> ·
+        <span class="manque">[e-mail à fournir]</span>
+      </p>
+      <p>
+        Compte tenu de la nature et du volume des traitements réalisés par ce site, la
+        désignation d'un délégué à la protection des données n'est pas requise.
+      </p>
+    </section>
+
+    <section>
+      <h2>Quelles données ce site collecte</h2>
+      <p><strong>Aucune.</strong> Le détail :</p>
+      <ul class="puces">
+        <li>il n'y a aucun formulaire de contact, de commande ou d'inscription ;</li>
+        <li>il n'y a aucun compte utilisateur, donc aucun identifiant ;</li>
+        <li>il n'y a aucune newsletter, donc aucune adresse e-mail collectée ;</li>
+        <li>il n'y a aucun paiement, donc aucune donnée bancaire ;</li>
+        <li>il n'y a aucun outil de mesure d'audience, aucun pixel publicitaire, aucun traceur ;</li>
+        <li>les polices de caractères sont hébergées sur le serveur du site : votre navigateur
+            ne contacte aucun serveur tiers pour les charger ;</li>
+        <li>aucune carte, aucune vidéo, aucun module de commande et aucun widget tiers n'est
+            intégré dans les pages.</li>
+      </ul>
+      <p>
+        Autrement dit, aucun traitement de données à caractère personnel n'est mis en œuvre par
+        ce site. Les droits d'accès, de rectification, d'effacement, d'opposition, de
+        limitation et de portabilité prévus par le RGPD n'ont, en pratique, aucune donnée sur
+        laquelle s'exercer ici.
+      </p>
+      <p>
+        Une exception, et une seule, mérite d'être dite franchement : les photographies.
+      </p>
+
+      <h3>Les photographies de la page d'accueil</h3>
+      <div class="alerte">
+        <h3>Les images viennent d'un serveur tiers</h3>
+        <p>
+          Les trois photographies de la page d'accueil ne sont pas hébergées par ce site :
+          elles sont chargées depuis <strong>bigcitynantes.fr</strong>, le site d'un média
+          local. Concrètement, <strong>votre navigateur contacte ce serveur à chaque visite de
+          la page d'accueil</strong>, et lui transmet à cette occasion votre adresse IP, votre
+          type de navigateur et la page d'où vient la requête.
+        </p>
+        <p>
+          Vérifié le 17 juillet 2026 : ce serveur <strong>ne dépose aucun cookie</strong> et ne
+          renvoie aucun traceur — il ne répond qu'une image. Il n'y a donc rien à consentir au
+          sens de l'article 82 de la loi Informatique et Libertés. Mais une requête vers un
+          tiers reste une requête vers un tiers : elle est signalée ici plutôt que passée sous
+          silence.
+        </p>
+        <p>
+          <strong>Ce point est en cours de correction :</strong> les photographies ont vocation
+          à être hébergées sur le serveur du site, une fois les droits d'utilisation réglés
+          avec leur auteur. Cette page sera alors mise à jour, et il ne restera plus aucune
+          requête tierce.
+        </p>
+      </div>
+    </section>
+
+    <div class="sep" aria-hidden="true">• • •</div>
+
+    <section>
+      <h2 id="cookies">Cookies</h2>
+      <p>
+        <strong>Ce site ne dépose aucun cookie</strong> — ni cookie de mesure d'audience, ni
+        cookie publicitaire, ni cookie de préférence, ni même cookie strictement nécessaire.
+        Il n'utilise pas davantage le stockage local de votre navigateur
+        (<code>localStorage</code>, <code>sessionStorage</code>).
+      </p>
+      <p>
+        L'article 82 de la loi Informatique et Libertés impose de recueillir le consentement
+        avant tout dépôt de cookie non strictement nécessaire. Aucun cookie n'étant déposé, il
+        n'y a rien à consentir : c'est pourquoi vous ne verrez aucune bannière sur ce site.
+        Afficher une fenêtre de consentement qui ne servirait à rien serait une gêne inutile.
+        <strong>C'est un choix, pas un oubli.</strong>
+      </p>
+      <p>
+        Vous pouvez le vérifier vous-même : ouvrez la console de votre navigateur et tapez
+        <code>document.cookie</code>. La réponse est une chaîne vide.
+      </p>
+      <p>
+        Si un outil de mesure d'audience, une carte intégrée, un module de commande ou un pixel
+        publicitaire venait à être ajouté, cette page serait mise à jour et un dispositif de
+        consentement serait mis en place — avec un refus aussi simple que l'acceptation, un
+        choix modifiable à tout moment, et aucun dépôt avant consentement.
+      </p>
+    </section>
+
+    <section>
+      <h2>Les journaux de connexion de l'hébergeur</h2>
+      <p>
+        Comme tout site accessible sur internet, les serveurs qui l'hébergent enregistrent
+        techniquement les requêtes reçues (adresse IP, date et heure, page demandée, type de
+        navigateur). Ces journaux relèvent de l'hébergeur et poursuivent une finalité de
+        sécurité et de bon fonctionnement, sur la base de l'intérêt légitime
+        (article 6.1.f du RGPD).
+      </p>
+      <ul class="fiche">
+        <li><span class="k">Hébergeur</span><span class="v"><span class="manque">[à fournir]</span></span></li>
+        <li><span class="k">Durée de conservation</span><span class="v"><span class="manque">[à fournir — selon la politique de l'hébergeur]</span></span></li>
+        <li><span class="k">Transferts hors UE</span><span class="v"><span class="manque">[à vérifier selon l'hébergeur retenu]</span></span></li>
+      </ul>
+      <p>
+        Ce bloc doit être complété une fois l'hébergeur arrêté. Il ne doit mentionner que des
+        sous-traitants réellement utilisés.
+      </p>
+    </section>
+
+    <div class="sep" aria-hidden="true">• • •</div>
+
+    <section>
+      <h2>Les liens vers l'extérieur</h2>
+      <p>Certains liens vous emmènent vers des services tiers :</p>
+      <ul class="puces">
+        <li><strong>Instagram</strong> (Meta Platforms Ireland Ltd) — le lien vers le compte de
+            la maison. Aucun contenu Meta n'est intégré dans les pages.</li>
+        <li><strong>Google Maps</strong> (Google Ireland Ltd) — le lien « Itinéraire ». Aucune
+            carte n'est intégrée dans les pages : rien n'est chargé depuis Google tant que vous
+            ne cliquez pas.</li>
+        <li><strong>Uber Eats</strong> et <strong>Naofood</strong> — cités comme services de
+            livraison. La commande, le paiement et la livraison se déroulent entièrement sur
+            leurs propres services, sous leurs propres conditions et leurs propres politiques
+            de confidentialité.</li>
+      </ul>
+      <p>
+        À partir du moment où vous ouvrez l'un de ces liens, vous quittez ce site et vous
+        entrez dans le champ des politiques de confidentialité de ces services, sur lesquelles
+        l'éditeur n'a aucune prise.
+      </p>
+    </section>
+
+    <section>
+      <h2>Si vous nous écrivez</h2>
+      <p>
+        Quand vous nous contactez par téléphone ou par message privé sur Instagram — pour une
+        commande, une question sur la carte ou sur la provenance d'un produit — ces échanges ne
+        passent pas par ce site. Ils sont traités dans nos outils habituels, uniquement pour
+        répondre à votre demande, sur la base de l'intérêt légitime, et ne servent ni à de la
+        prospection ni à alimenter un fichier. Ils sont conservés le temps nécessaire au
+        traitement de la demande.
+      </p>
+    </section>
+
+    <section>
+      <h2>Réclamation</h2>
+      <p>
+        Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une
+        réclamation auprès de la Commission nationale de l'informatique et des libertés
+        (CNIL), 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07 —
+        <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">cnil.fr</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Modification</h2>
+      <p>
+        Toute évolution technique du site susceptible de changer ce qui précède fera l'objet
+        d'une mise à jour de cette page, avec une nouvelle date en tête.
+      </p>
+    </section>
+
+    <div class="actions">
+      <a class="gros-bouton" href="index.html">Retour à l'accueil</a>
+      <a class="bouton-creux" href="mentions-legales.html">Mentions légales</a>
+    </div>
+
   </main>
 
-  <footer>
-    <div class="boite">
-      <span>© 2026 GïDA. Tous droits réservés.</span>
-      <span><a href="index.html">Accueil</a> · <a href="mentions-legales.html">Mentions légales</a></span>
+  <svg class="vague" viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#161F42" d="M0,45 C300,90 600,5 900,40 C1150,68 1300,60 1440,30 L1440,90 L0,90 Z" />
+  </svg>
+
+  <footer class="pied">
+    <div class="pied__grille">
+      <a class="pied__logo" href="index.html">g<span class="i">ï</span>da</a>
+      <span class="pied__droite">
+        <span>© 2026 GïDA — kebab artisanal &amp; locavore · maquette de démonstration</span>
+        <span>
+          <a href="mentions-legales.html">Mentions légales</a> ·
+          <a href="politique-confidentialite.html" aria-current="page">Confidentialité</a> ·
+          <a href="politique-confidentialite.html#cookies">Cookies</a>
+        </span>
+        <span>Création <a href="https://vokumagency.com" target="_blank" rel="noopener">Vokum</a></span>
+      </span>
     </div>
   </footer>
+
 </body>
 </html>

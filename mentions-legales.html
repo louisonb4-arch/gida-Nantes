@@ -4,118 +4,522 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mentions légales — GïDA</title>
+  <meta name="description" content="Mentions légales du site de GïDA, kebab artisanal et locavore au 27 rue de la Tour d'Auvergne, sur l'Île de Nantes." />
   <meta name="robots" content="noindex" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Marcellus&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/font/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/font/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>
+    /* ================================================================
+       Polices auto-hébergées — SIL Open Font License 1.1
+       Sous-ensembles latin + latin-ext uniquement (site en français).
+       Aucune requête vers les serveurs de Google Fonts.
+       ================================================================ */
+    @font-face {
+      font-family: "Bricolage Grotesque";
+      font-style: normal;
+      font-weight: 200 800; /* fichier variable : wght 200–800, opsz 12–96 */
+      font-display: swap;
+      src: url(assets/font/bricolage-grotesque-latin.woff2) format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Bricolage Grotesque";
+      font-style: normal;
+      font-weight: 200 800;
+      font-display: swap;
+      src: url(assets/font/bricolage-grotesque-latin-ext.woff2) format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Caveat";
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url(assets/font/caveat-latin.woff2) format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Caveat";
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url(assets/font/caveat-latin-ext.woff2) format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Marcellus";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(assets/font/marcellus-latin.woff2) format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Marcellus";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(assets/font/marcellus-latin-ext.woff2) format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* ================================================================
+       GïDA — pages légales
+       Rubrique « L'étiquette » : la DA du site dit que chaque
+       ingrédient a une adresse. Ces pages donnent celle de la maison.
+       Même palette, mêmes polices, mêmes traits pointillés que la
+       carte et le bloc infos.
+       ================================================================ */
     :root {
       --papier: #F5F2E8;
       --marine: #223268;
       --marine-fonce: #161F42;
       --bois: #B9853F;
       --bois-clair: #E9CD92;
+      --ardoise: #24251F;
       --encre: #1E2438;
+      --encre-doux: #49506B;
       --brico: "Bricolage Grotesque", "Helvetica Neue", sans-serif;
+      --manuscrit: "Caveat", cursive;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: var(--brico); background: var(--papier); color: var(--encre); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      font-family: var(--brico);
+      background: var(--papier);
+      color: var(--encre);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
     a { color: var(--marine); }
-    .boite { max-width: 760px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 44px); }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--bois);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    .boite { max-width: 820px; margin-inline: auto; padding-inline: clamp(20px, 4vw, 44px); }
 
-    .nav { display: flex; justify-content: space-between; align-items: center; padding: 24px clamp(20px, 5vw, 44px); }
-    .nav__logo { font-family: "Marcellus", Georgia, serif; font-size: 1.3rem; letter-spacing: 0.24em; text-transform: uppercase; text-decoration: none; color: var(--marine); }
+    /* ---------- Nav (identique au site) ---------- */
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px clamp(20px, 4vw, 44px); }
+    .nav__logo {
+      font-family: "Marcellus", Georgia, serif;
+      font-size: 1.35rem; letter-spacing: 0.24em; text-transform: uppercase;
+      text-decoration: none; color: var(--marine);
+    }
     .nav__logo .i { color: var(--bois); }
-    .nav__retour { text-decoration: none; font-weight: 600; font-size: 0.92rem; color: var(--encre); opacity: 0.75; }
-    .nav__retour:hover { opacity: 1; }
+    .nav__retour { text-decoration: none; font-weight: 600; font-size: 0.95rem; color: var(--encre); opacity: 0.75; }
+    .nav__retour:hover { opacity: 1; color: var(--bois); }
 
-    main { padding-block: clamp(32px, 6vw, 60px) 90px; }
-    h1 { font-family: "Marcellus", Georgia, serif; font-size: clamp(2rem, 4.5vw, 2.7rem); color: var(--marine); margin-bottom: 10px; }
-    .maj { font-size: 0.85rem; opacity: 0.6; margin-bottom: 48px; }
-    section { margin-top: 42px; }
-    section + section { padding-top: 42px; border-top: 1px dashed rgba(34, 50, 104, 0.2); }
-    h2 { font-size: 1.25rem; font-weight: 800; color: var(--marine); margin-bottom: 14px; }
-    p { font-size: 0.98rem; max-width: 62ch; }
+    /* ---------- Tête de page ---------- */
+    main { padding-block: clamp(28px, 5vw, 52px) clamp(60px, 8vw, 90px); }
+    .manuscrit {
+      font-family: var(--manuscrit);
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      color: var(--bois);
+      display: inline-block;
+      transform: rotate(-2deg);
+    }
+    h1 {
+      font-weight: 800; line-height: 1.05; letter-spacing: -0.025em;
+      font-size: clamp(2.3rem, 6vw, 3.6rem);
+      margin-top: 8px;
+    }
+    h1 .souligne { position: relative; white-space: nowrap; }
+    h1 .souligne::after {
+      content: ""; position: absolute; left: -2%; bottom: 0.04em;
+      width: 104%; height: 0.26em; background: var(--bois-clair);
+      z-index: -1; border-radius: 4px; transform: rotate(-1deg);
+    }
+    .lede { margin-top: 20px; font-size: clamp(1rem, 1.6vw, 1.12rem); color: var(--encre-doux); max-width: 60ch; }
+    .maj { margin-top: 14px; font-size: 0.85rem; color: var(--encre-doux); opacity: 0.8; }
+
+    /* ---------- Corps ---------- */
+    section { margin-top: 44px; }
+    section + section { padding-top: 44px; border-top: 1px dashed rgba(34, 50, 104, 0.22); }
+    h2 { font-size: clamp(1.35rem, 2.6vw, 1.75rem); font-weight: 800; letter-spacing: -0.02em; color: var(--marine); margin-bottom: 14px; }
+    h3 { font-size: 1.1rem; font-weight: 800; margin: 24px 0 8px; }
+    p { font-size: 0.98rem; max-width: 66ch; }
     p + p { margin-top: 12px; }
-    .placeholder { color: var(--bois); font-weight: 600; }
-    .note { margin-top: 60px; padding: 20px 24px; background: rgba(34, 50, 104, 0.05); border-radius: 16px; font-size: 0.85rem; opacity: 0.8; max-width: 62ch; }
+    ul.puces { margin: 12px 0 0 20px; max-width: 66ch; }
+    ul.puces li { font-size: 0.98rem; padding-block: 4px; }
 
-    footer { background: var(--marine-fonce); color: var(--papier); padding: 32px clamp(20px, 5vw, 44px); }
-    footer .boite { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.8; }
-    footer a { color: var(--bois-clair); }
+    /* ---------- Fiche d'identité : l'étiquette produit ---------- */
+    .fiche { list-style: none; margin: 20px 0 8px; }
+    .fiche li {
+      display: flex; align-items: baseline; gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px dashed rgba(34, 50, 104, 0.25);
+    }
+    .fiche li:last-child { border-bottom: none; }
+    .fiche .k { color: var(--encre-doux); white-space: nowrap; font-size: 0.92rem; }
+    .fiche .v { margin-left: auto; text-align: right; font-weight: 600; font-size: 0.95rem; }
+    @media (max-width: 640px) {
+      .fiche li { flex-wrap: wrap; gap: 2px; }
+      .fiche .v { margin-left: 0; text-align: left; width: 100%; }
+    }
+
+    /* ---------- Encadré source (le site dit d'où il tient ce qu'il affirme) ---------- */
+    .source {
+      background: rgba(185, 133, 63, 0.09);
+      border: 1px solid rgba(185, 133, 63, 0.3);
+      border-left: 3px solid var(--bois);
+      border-radius: 0 16px 16px 0;
+      padding: 18px 22px; margin: 20px 0;
+      font-size: 0.9rem; color: var(--encre-doux); max-width: 68ch;
+    }
+    .source strong { color: var(--encre); }
+
+    /* ---------- Alerte : ce qui n'est pas tranché ---------- */
+    .alerte {
+      background: #FFF0F5;
+      border: 1.5px solid #E8A6BF;
+      border-left: 4px solid #C2185B;
+      border-radius: 0 16px 16px 0;
+      padding: 20px 24px; margin: 22px 0;
+      max-width: 68ch;
+    }
+    .alerte h3 { margin-top: 0; color: #7A0B26; font-size: 1.02rem; }
+    .alerte p { font-size: 0.93rem; }
+
+    /* Trou assumé : ce qui n'a pas pu être vérifié se voit. */
+    .manque {
+      background: #FFD9E2;
+      color: #7A0B26;
+      padding: 1px 7px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 0.94em;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    /* ---------- Séparateur : les pointillés de la carte ---------- */
+    .sep {
+      text-align: center; color: var(--bois);
+      font-family: var(--manuscrit); font-size: 1.4rem;
+      letter-spacing: 0.5em;
+      margin: clamp(40px, 6vw, 64px) 0;
+      transform: rotate(-1deg);
+    }
+
+    /* ---------- Boutons ---------- */
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: clamp(44px, 6vw, 64px); }
+    .gros-bouton {
+      background: var(--marine); color: var(--papier);
+      text-decoration: none; font-weight: 800; font-size: 1rem;
+      padding: 15px 30px; border-radius: 999px;
+      box-shadow: 0 10px 24px -10px rgba(34, 50, 104, 0.55);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .gros-bouton:hover { transform: rotate(1.5deg); background: var(--bois); }
+    .bouton-creux {
+      background: transparent; color: var(--marine);
+      border: 1.5px solid rgba(34, 50, 104, 0.4);
+      text-decoration: none; font-weight: 600; font-size: 1rem;
+      padding: 15px 30px; border-radius: 999px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .bouton-creux:hover { transform: rotate(-1.5deg); border-color: var(--bois); color: var(--bois); }
+    @media (prefers-reduced-motion: reduce) {
+      .gros-bouton, .bouton-creux { transition: none; }
+      .gros-bouton:hover, .bouton-creux:hover { transform: none; }
+    }
+
+    /* ---------- Vague + pied (comme le site) ---------- */
+    .vague { display: block; width: 100%; height: auto; }
+    footer.pied { background: var(--marine-fonce); color: var(--papier); padding: 8px clamp(20px, 4vw, 44px) 36px; }
+    .pied__grille {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 14px; flex-wrap: wrap;
+      max-width: 1140px; margin-inline: auto;
+      font-size: 0.85rem; opacity: 0.8;
+    }
+    .pied__logo {
+      font-family: "Marcellus", Georgia, serif;
+      font-size: 1.15rem; letter-spacing: 0.24em; text-transform: uppercase;
+      opacity: 1; text-decoration: none; color: var(--papier);
+    }
+    .pied__logo .i { color: var(--bois); }
+    .pied__droite { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
+    .pied__droite a { color: var(--bois-clair); text-decoration: none; opacity: 0.9; }
+    .pied__droite a:hover { opacity: 1; text-decoration: underline; }
+    @media (max-width: 560px) { .pied__droite { align-items: flex-start; text-align: left; } }
   </style>
 </head>
 <body>
-  <nav class="nav">
+
+  <nav class="nav" aria-label="Navigation principale">
     <a class="nav__logo" href="index.html">g<span class="i">ï</span>da</a>
     <a class="nav__retour" href="index.html">← Retour au site</a>
   </nav>
 
   <main class="boite">
-    <h1>Mentions légales</h1>
-    <p class="maj">Dernière mise à jour : 2026</p>
+
+    <span class="manuscrit">l'étiquette</span>
+    <h1>Mentions <span class="souligne">légales</span></h1>
+    <p class="lede">
+      Sur ce site, chaque ingrédient a une adresse. Voici celle de la maison :
+      qui édite ces pages, qui les héberge, à qui appartiennent les textes et les photos.
+      C'est l'article 6 de la loi pour la confiance dans l'économie numérique qui l'exige.
+    </p>
+    <p class="maj">Dernière mise à jour : 17 juillet 2026</p>
 
     <section>
+      <p>
+        Les informations marquées <span class="manque">[à fournir]</span> ou
+        <span class="manque">[à confirmer]</span> n'ont pas pu être vérifiées à une source
+        officielle. Elles apparaissent en surbrillance exprès : un trou doit se voir, pas se
+        combler avec une supposition. <strong>Aucune donnée n'a été inventée</strong> — et ce
+        qui suit remplace un modèle générique à crochets qui figurait ici auparavant.
+      </p>
+
       <h2>Éditeur du site</h2>
+
+      <div class="alerte">
+        <h3>⚠ L'éditeur de ce site n'est pas confirmé</h3>
+        <p>
+          <span class="manque">[à confirmer — le rattachement de la société LES ARROSES au
+          restaurant GïDA est déduit de la seule adresse]</span>
+        </p>
+        <p>
+          <strong>Aucune enseigne « GïDA » n'est déclarée au registre national des
+          entreprises.</strong> La société dont les informations figurent ci-dessous a été
+          identifiée uniquement parce qu'elle exploite un établissement de restauration à
+          l'adresse du restaurant. Ce faisceau est plausible, il n'est pas une preuve.
+          <strong>Désigner le mauvais éditeur dans des mentions légales est une faute</strong> :
+          l'exploitant doit confirmer, avant la mise en ligne, que LES ARROSES est bien la
+          société qui exploite GïDA et qui édite ce site — ou fournir la bonne entité.
+        </p>
+      </div>
+
+      <ul class="fiche">
+        <li><span class="k">Dénomination sociale</span><span class="v">LES ARROSES</span></li>
+        <li><span class="k">Enseigne</span><span class="v"><span class="manque">[à confirmer — « GïDA » n'est déclarée à aucun registre]</span></span></li>
+        <li><span class="k">Forme juridique</span><span class="v">Société à responsabilité limitée (SARL)</span></li>
+        <li><span class="k">Siège social</span><span class="v">5 rue Emmanuel Lebert, 44400 Rezé, France</span></li>
+        <li><span class="k">Établissement — le restaurant</span><span class="v">27 rue de la Tour d'Auvergne, 44200 Nantes</span></li>
+        <li><span class="k">SIREN</span><span class="v">900 619 917</span></li>
+        <li><span class="k">SIRET (siège social, à Rezé)</span><span class="v">900 619 917 00017</span></li>
+        <li><span class="k">SIRET (établissement, à Nantes)</span><span class="v">900 619 917 00033</span></li>
+        <li><span class="k">TVA intracommunautaire</span><span class="v">FR35900619917</span></li>
+        <li><span class="k">Code APE</span><span class="v">56.10A — Restauration traditionnelle</span></li>
+        <li><span class="k">Immatriculation</span><span class="v">18 juin 2021</span></li>
+        <li><span class="k">Gérants</span><span class="v">Olivier Adriaens · Charlie Coignard · Samy Mokhtari · Benjamin Vives-Bauquin</span></li>
+        <li><span class="k">Téléphone</span><span class="v"><a href="tel:+33981993160">09 81 99 31 60</a></span></li>
+        <li><span class="k">Capital social</span><span class="v"><span class="manque">[à fournir]</span></span></li>
+        <li><span class="k">RCS</span><span class="v"><span class="manque">[à confirmer — RCS Nantes 900 619 917]</span></span></li>
+        <li><span class="k">E-mail</span><span class="v"><span class="manque">[à fournir]</span></span></li>
+      </ul>
+
+      <div class="source">
+        <strong>D'où viennent ces données.</strong> Relevées le 17 juillet 2026 au registre
+        national des entreprises, via l'API publique
+        <a href="https://recherche-entreprises.api.gouv.fr" target="_blank" rel="noopener noreferrer">recherche-entreprises.api.gouv.fr</a>.
+        Le capital social ne figure pas dans ce registre et doit être fourni par l'éditeur :
+        il est obligatoire dans les mentions légales d'une société commerciale.
+      </div>
+
+      <h3>Le siège n'est pas le restaurant</h3>
       <p>
-        <span class="placeholder">[NOM DE L'ENTREPRISE]</span>, <span class="placeholder">[FORME JURIDIQUE]</span><br />
-        Siège social : <span class="placeholder">[ADRESSE]</span><br />
-        Numéro d'entreprise (SIRET) : <span class="placeholder">[SIRET / NEQ / NUMÉRO D'ENTREPRISE]</span><br />
-        Directeur de publication : <span class="placeholder">[NOM DU RESPONSABLE]</span>
+        Les deux adresses ci-dessus sont différentes, et c'est volontaire.
+        Le <strong>siège social</strong> de la société est situé
+        <strong>5 rue Emmanuel Lebert, 44400 Rezé</strong> : c'est l'adresse juridique de
+        l'éditeur, ce n'est pas un lieu où l'on mange.
+        Le <strong>restaurant</strong> est l'établissement situé
+        <strong>27 rue de la Tour d'Auvergne, 44200 Nantes</strong>, sur l'Île de Nantes
+        (établissement actif, SIRET 900 619 917 00033).
+        Pour venir manger, c'est à Nantes ; pour écrire à la société, c'est à Rezé.
       </p>
     </section>
 
     <section>
-      <h2>Responsable de publication</h2>
+      <h2>Directeur de la publication</h2>
+      <p><span class="manque">[à fournir]</span></p>
       <p>
-        <span class="placeholder">[NOM DU RESPONSABLE DE PUBLICATION]</span>, en qualité de <span class="placeholder">[FONCTION]</span> de l'établissement GïDA.
+        Pour une SARL, le directeur de la publication est le gérant, sauf désignation d'une
+        autre personne. La société a <strong>quatre gérants</strong> — Olivier Adriaens,
+        Charlie Coignard, Samy Mokhtari et Benjamin Vives-Bauquin. Il n'est donc pas possible
+        de déduire lequel assume cette fonction : celui des quatre qui l'exerce doit être
+        désigné nommément avant la mise en ligne.
       </p>
     </section>
 
     <section>
-      <h2>Coordonnées de contact</h2>
+      <h2>Hébergement</h2>
+      <ul class="fiche">
+        <li><span class="k">Hébergeur</span><span class="v"><span class="manque">[à fournir]</span></span></li>
+        <li><span class="k">Adresse</span><span class="v"><span class="manque">[à fournir]</span></span></li>
+        <li><span class="k">Téléphone</span><span class="v"><span class="manque">[à fournir]</span></span></li>
+        <li><span class="k">Site</span><span class="v"><span class="manque">[à fournir]</span></span></li>
+      </ul>
       <p>
-        GïDA — 27 rue de la Tour d'Auvergne, 44200 Nantes<br />
-        Téléphone : <a href="tel:+33981993160">09 81 99 31 60</a><br />
-        Email : <span class="placeholder">[EMAIL]</span>
+        L'article 6 III-1 de la loi n° 2004-575 du 21 juin 2004 impose de mentionner le nom,
+        la dénomination, l'adresse et le téléphone de l'hébergeur. Ce bloc doit être renseigné
+        avant la mise en ligne, une fois l'hébergeur définitif arrêté, et à partir des mentions
+        légales publiées par l'hébergeur lui-même.
       </p>
     </section>
 
     <section>
-      <h2>Hébergeur du site</h2>
+      <h2>Conception et réalisation</h2>
       <p>
-        Vercel Inc.<br />
-        440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis <span class="placeholder">(adresse à vérifier)</span><br />
-        <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a>
+        Conception éditoriale, direction artistique et développement :
+        <a href="https://vokumagency.com" target="_blank" rel="noopener noreferrer">Vokum</a>.
       </p>
     </section>
+
+    <div class="sep" aria-hidden="true">• • •</div>
 
     <section>
       <h2>Propriété intellectuelle</h2>
       <p>
-        L'ensemble des contenus présents sur ce site (textes, photographies, logo, mise en page, éléments graphiques) est protégé au titre du droit d'auteur.
-        Toute reproduction, représentation ou exploitation, totale ou partielle, sans autorisation préalable est interdite.
+        La structure du site, les textes, la charte graphique et les développements sont
+        protégés par le droit de la propriété intellectuelle. Toute reproduction ou
+        représentation, totale ou partielle, sans autorisation écrite préalable de l'éditeur
+        est interdite.
+      </p>
+      <p>
+        Le nom commercial « GïDA » et son logotype sont la propriété de leur titulaire.
+      </p>
+
+      <h3>Photographies</h3>
+      <p>
+        Les trois photographies affichées sur la page d'accueil <strong>ne sont pas hébergées
+        par ce site</strong> : elles sont chargées directement depuis le serveur du média
+        <strong>bigcitynantes.fr</strong>, qui a publié un article sur le restaurant en
+        octobre 2022.
+        <span class="manque">[droits d'utilisation des photographies à fournir]</span> —
+        l'auteur des clichés, le titulaire des droits et l'autorisation de les publier sur ce
+        site ne sont documentés nulle part. Les personnes reconnaissables sur les images
+        doivent par ailleurs avoir donné leur autorisation au titre du droit à l'image.
+      </p>
+
+      <h3>Polices de caractères</h3>
+      <p>
+        Le site utilise les familles Bricolage Grotesque, Caveat et Marcellus, distribuées sous
+        licence SIL Open Font License 1.1 et hébergées sur le serveur du site.
+      </p>
+
+      <h3>Marques et services cités</h3>
+      <p>
+        Les noms des producteurs, boulangeries, brasseries et glaciers évoqués sur ce site
+        restent la propriété de leurs titulaires respectifs. Uber Eats et Naofood, cités comme
+        services de livraison, ainsi qu'Instagram, sont des marques de leurs éditeurs
+        respectifs : ils sont mentionnés à titre d'information.
+      </p>
+    </section>
+
+    <div class="sep" aria-hidden="true">• • •</div>
+
+    <section>
+      <h2>Ce que fait ce site, et ce qu'il ne fait pas</h2>
+      <p>
+        Ce site est un site vitrine. Il présente la maison, la provenance de ses produits, sa
+        carte et ses informations pratiques.
+      </p>
+      <ul class="puces">
+        <li>il ne vend aucun produit ni service en ligne ;</li>
+        <li>il n'encaisse aucun paiement et ne reçoit aucune donnée bancaire ;</li>
+        <li>il ne comporte aucun formulaire, aucun compte utilisateur, aucune newsletter ;</li>
+        <li>il n'utilise aucun outil de mesure d'audience ;</li>
+        <li>il ne dépose aucun cookie.</li>
+      </ul>
+      <p>
+        <strong>Les commandes ne se font pas sur ce site.</strong> Elles se passent par
+        téléphone, sur place, ou via les plateformes de livraison citées dans la page — Uber
+        Eats et Naofood — qui ont chacune leur propre site, leurs propres conditions et leur
+        propre politique de confidentialité.
+      </p>
+      <p>
+        Aucun contrat n'étant conclu par l'intermédiaire de ce site, il n'y a pas lieu d'y
+        établir de conditions générales de vente ni d'utilisation.
       </p>
     </section>
 
     <section>
-      <h2>Limitation de responsabilité</h2>
+      <h2>Responsabilité</h2>
       <p>
-        Les informations diffusées sur ce site (horaires, tarifs, carte, disponibilités) sont données à titre indicatif et peuvent évoluer sans préavis.
-        GïDA ne saurait être tenu responsable des erreurs ou omissions, ni d'une indisponibilité temporaire du site.
+        L'éditeur s'efforce de tenir ce site à jour. La carte, les tarifs, la composition des
+        plats, la provenance des produits et les horaires sont susceptibles d'évoluer à tout
+        moment ; seuls ceux affichés dans l'établissement, 27 rue de la Tour d'Auvergne à
+        Nantes, font foi. La réduction étudiante et la formule annoncées sur ce site sont
+        présentées à titre indicatif et ne constituent pas un engagement contractuel.
+      </p>
+      <p>
+        Le site comporte des liens vers des sites tiers (Instagram, Google Maps). L'éditeur
+        n'a aucun contrôle sur leur contenu et décline toute responsabilité à leur égard.
+        Ouvrir l'un de ces liens vous soumet à la politique de confidentialité du service
+        concerné.
       </p>
     </section>
 
-    <p class="note">
-      Ces mentions sont un modèle générique à adapter aux informations exactes de l'entreprise (raison sociale, SIRET, responsable de publication) et à faire valider selon l'activité. Elles ne remplacent pas un avis juridique.
-    </p>
+    <section>
+      <h2>Vente d'alcool</h2>
+      <p>
+        Le restaurant propose des bières et des vins de producteurs de la région.
+        <strong>La vente d'alcool à des mineurs de moins de dix-huit ans est interdite</strong>
+        (article L3342-1 du code de la santé publique). L'abus d'alcool est dangereux pour la
+        santé ; à consommer avec modération.
+      </p>
+    </section>
+
+    <section>
+      <h2>Accessibilité</h2>
+      <p>
+        Ce site a été développé en visant les critères du référentiel WCAG 2.2 niveau AA :
+        structure sémantique, navigation au clavier, contrastes vérifiés, textes alternatifs
+        et respect du réglage système « réduire les animations ». Si vous rencontrez une
+        difficulté d'accès à une information, signalez-la à l'éditeur
+        (<span class="manque">[e-mail à fournir]</span>) : elle sera corrigée.
+      </p>
+    </section>
+
+    <section>
+      <h2>Droit applicable</h2>
+      <p>
+        Le présent site est soumis au droit français. En cas de litige, et à défaut de
+        résolution amiable, les tribunaux français sont compétents.
+      </p>
+    </section>
+
+    <section>
+      <h2>Nous écrire</h2>
+      <p>
+        GïDA — 27 rue de la Tour d'Auvergne, 44200 Nantes (le restaurant).<br />
+        Siège social de la société éditrice : 5 rue Emmanuel Lebert, 44400 Rezé.<br />
+        Téléphone : <a href="tel:+33981993160">09 81 99 31 60</a> ·
+        E-mail : <span class="manque">[à fournir]</span>
+      </p>
+    </section>
+
+    <div class="actions">
+      <a class="gros-bouton" href="index.html">Retour à l'accueil</a>
+      <a class="bouton-creux" href="politique-confidentialite.html">Confidentialité &amp; cookies</a>
+    </div>
+
   </main>
 
-  <footer>
-    <div class="boite">
-      <span>© 2026 GïDA. Tous droits réservés.</span>
-      <span><a href="index.html">Accueil</a> · <a href="politique-confidentialite.html">Politique de confidentialité</a></span>
+  <svg class="vague" viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#161F42" d="M0,45 C300,90 600,5 900,40 C1150,68 1300,60 1440,30 L1440,90 L0,90 Z" />
+  </svg>
+
+  <footer class="pied">
+    <div class="pied__grille">
+      <a class="pied__logo" href="index.html">g<span class="i">ï</span>da</a>
+      <span class="pied__droite">
+        <span>© 2026 GïDA — kebab artisanal &amp; locavore · maquette de démonstration</span>
+        <span>
+          <a href="mentions-legales.html" aria-current="page">Mentions légales</a> ·
+          <a href="politique-confidentialite.html">Confidentialité</a> ·
+          <a href="politique-confidentialite.html#cookies">Cookies</a>
+        </span>
+        <span>Création <a href="https://vokumagency.com" target="_blank" rel="noopener">Vokum</a></span>
+      </span>
     </div>
   </footer>
+
 </body>
 </html>
